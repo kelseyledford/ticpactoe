@@ -6,13 +6,20 @@ var tptApp = angular.module ('tptApp', []);
 tptApp.controller('TptController', function ($scope) { 
 	//Creates a 2D array
 	$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
+	//The game is not over
 	$scope.gameOver = false;
-	$scope.isXTurn = true;
+	//It is pacman's turn to start
+	$scope.isPMTurn = true;
+	//When a cell is clicked, this function runs with the clicked cell's index passed as a parameter
 	$scope.makeMove = function (clickedCellIndex) {
-		if ($scope.cells[clickedCellIndex] == ' ') {
+		//If the cells is empty, check win consitions
+		//when gameOver = true, no empty box can be clicked
+		if ($scope.gameOver == true) {
+			console.log ("Stop playing loser the game is over");
+		} else if ($scope.cells[clickedCellIndex] == ' ') {
 			console.log("you can choose this");
-			//sets cell to 1 (pacman) or -1 (ghost)
-			$scope.cells[clickedCellIndex] = $scope.isXTurn?1:-1;
+			//sets cell to 1 (pacman) or -1 (ghost) depending on whose turn it is
+			$scope.cells[clickedCellIndex] = $scope.isPMTurn?1:-1;
 			//win conditions
 			//row for pacman
 			if ($scope.cells[0] + $scope.cells[1] + $scope.cells[2] == 3 ||
@@ -82,8 +89,9 @@ tptApp.controller('TptController', function ($scope) {
 				};
 			//changes to other player's turn
 			} else {
-				$scope.isXTurn = !$scope.isXTurn; 
+				$scope.isPMTurn = !$scope.isPMTurn; 
 			}; 
+		//if cell is not empty, unclickable
 		} else {
 			console.log("you can't choose this");
 		};
