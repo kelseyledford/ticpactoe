@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html x-ng-app="tptApp">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="js/script.js"></script>
+</head>
+<body x-ng-controller="TptController">
+	<img id="logo" src="images/logo.jpg" />
+	<div id="board">
+		<div x-ng-class="{cell: true, pacman: c == 1, ghost: c == -1}" x-ng-repeat="c in cells track by $index" x-ng-click = "makeMove($index);">
+		</div>
+	</div>
+	<div id="bottom">
+		<input x-ng-class="{button: true, buttonHidden: gameOver == false, buttonAppear: gameOver == true}" type="button" value="Play again?" x-ng-click="restart()" />
+	</div>
+</body>
+</html>
