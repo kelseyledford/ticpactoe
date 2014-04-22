@@ -1,15 +1,16 @@
 //make an array with hardcoded cell indexes (8 arrays inside of array that are possible win conditions)
 //run a for loop through the array to check for win conditions
-//prevent from choosing the same box twice
 //add turn counter and count up to 9 for cat's game
 var tptApp = angular.module ('tptApp', []);
 tptApp.controller('TptController', function ($scope) { 
 	//Creates a 2D array
+	var winnerAlert = document.getElementById("winnerAlert")
 	$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 	//The game is not over
 	$scope.gameOver = false;
 	//It is pacman's turn to start
 	$scope.isPMTurn = true;
+	$scope.winner = null;
 	//When a cell is clicked, this function runs with the clicked cell's index passed as a parameter
 	$scope.makeMove = function (clickedCellIndex) {
 		//If the cells is empty, check win consitions
@@ -25,7 +26,8 @@ tptApp.controller('TptController', function ($scope) {
 			if ($scope.cells[0] + $scope.cells[1] + $scope.cells[2] == 3 ||
 				$scope.cells[3] + $scope.cells[4] + $scope.cells[5] == 3 ||
 				$scope.cells[6] + $scope.cells[7] + $scope.cells[8] == 3) {
-				console.log("Pacman wins!");
+				winnerAlert.innerHTML = "PACMAN WINS!";
+				$scope.winner = "pacman";		
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
@@ -35,7 +37,8 @@ tptApp.controller('TptController', function ($scope) {
 			} else if ($scope.cells[0] + $scope.cells[1] + $scope.cells[2] == -3 ||
 				$scope.cells[3] + $scope.cells[4] + $scope.cells[5] == -3 ||
 				$scope.cells[6] + $scope.cells[7] + $scope.cells[8] == -3) {
-				console.log("Ghost wins!");
+				winnerAlert.innerHTML = "GHOST WINS!";
+				$scope.winner = "ghost";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
@@ -45,7 +48,8 @@ tptApp.controller('TptController', function ($scope) {
 			} else if ($scope.cells[0] + $scope.cells[3] + $scope.cells[6] == 3 ||
 				$scope.cells[1] + $scope.cells[4] + $scope.cells[7] == 3 ||
 				$scope.cells[2] + $scope.cells[5] + $scope.cells[8] == 3) {
-				console.log("Pacman wins!");
+				winnerAlert.innerHTML = "PACMAN WINS!";
+				$scope.winner = "pacman";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
@@ -55,7 +59,8 @@ tptApp.controller('TptController', function ($scope) {
 			} else if ($scope.cells[0] + $scope.cells[3] + $scope.cells[6] == -3 ||
 				$scope.cells[1] + $scope.cells[4] + $scope.cells[7] == -3 ||
 				$scope.cells[2] + $scope.cells[5] + $scope.cells[8] == -3) {
-				console.log("Ghost wins!");
+				winnerAlert.innerHTML = "GHOST WINS!";
+				$scope.winner = "ghost";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
@@ -64,7 +69,8 @@ tptApp.controller('TptController', function ($scope) {
 			//diagonals for pacman
 			} else if ($scope.cells[0] + $scope.cells[4] + $scope.cells[8] == 3 ||
 				$scope.cells[2] + $scope.cells[4] + $scope.cells[6] == 3) {
-				console.log("Pacman wins!");
+				winnerAlert.innerHTML = "PACMAN WINS!";
+				$scope.winner = "pacman";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
@@ -73,7 +79,8 @@ tptApp.controller('TptController', function ($scope) {
 			//diagonals for ghost
 			} else if ($scope.cells[0] + $scope.cells[4] + $scope.cells[8] == -3 ||
 				$scope.cells[2] + $scope.cells[4] + $scope.cells[6] == -3) {
-				console.log("Ghost wins!");
+				winnerAlert.innerHTML = "GHOST WINS!";
+				$scope.winner = "ghost";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
@@ -81,7 +88,8 @@ tptApp.controller('TptController', function ($scope) {
 				};
 			//cat's game
 			} else if ($scope.cells[0] !== ' ' && $scope.cells[1] !== ' ' && $scope.cells[2] !== ' ' && $scope.cells[3] !== ' ' && $scope.cells[4] !== ' ' && $scope.cells[5] !== ' ' && $scope.cells[6] !== ' ' && $scope.cells[7] !== ' ' && $scope.cells[8]) {
-				console.log("Cat's Game");
+				winnerAlert.innerHTML = "CAT'S GAME";
+				$scope.winner = "none";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];

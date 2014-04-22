@@ -2,6 +2,7 @@ body {
 	background-color: black;
 	text-align: center;
 	color: white;
+	font-family: 'Press Start 2P', 'cursive';
 }
 #logo {
 	width: 500px;
@@ -28,6 +29,20 @@ body {
 .ghost {
 	background-image: url("../images/ghost_icon.png");
 	background-size: cover;
+}
+.blueGhost {
+	background-image: url("../images/blue_ghost.jpg");
+	background-size: cover;
+}
+.flash{
+/*-moz-animation: -ms-animation: -moz-keyframes -ms-keyframes-*/
+	-webkit-animation: flash 1s ease-out;
+  	-webkit-animation-iteration-count: 2;
+}
+@-webkit-keyframes flash {
+    0% { background-image:none;}
+    50% {background-image: url("../images/pacman_icon.png");}        
+    100% {background-image:none;}
 }
 .button {
 	background-color: blue;
