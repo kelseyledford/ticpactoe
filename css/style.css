@@ -4,6 +4,12 @@ body {
 	color: white;
 	font-family: 'Press Start 2P', 'cursive';
 }
+#yesComputerPlayer {
+	font-size: 10px;
+}
+#noComputerPlayer {
+	font-size: 10px;
+}
 #logo {
 	width: 500px;
 	height: 200px;
@@ -34,7 +40,7 @@ body {
 	background-image: url("../images/blue_ghost.jpg");
 	background-size: cover;
 }
-.flash{
+.flash {
 /*-moz-animation: -ms-animation: -moz-keyframes -ms-keyframes-*/
 	-webkit-animation: flash 1s ease-out;
   	-webkit-animation-iteration-count: 2;
@@ -44,9 +50,8 @@ body {
     50% {background-image: url("../images/pacman_icon.png");}        
     100% {background-image:none;}
 }
-.button {
-	background-color: blue;
-	color: yellow;
+#gameOverAlert {
+	color: red;
 }
 .buttonHidden {
 	display: none;
@@ -54,3 +59,18 @@ body {
 .buttonAppear {
 	display: visible;
 }
+#playAgain {
+	color: yellow;
+}
+.blink {
+	-webkit-animation: blink 1s 2.5s infinite; 
+}
+@-webkit-keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}        
+    100% {opacity: 1;}
+}
+
+/*	transition-property: background;
+	transition-duration: 2s;
+	transition-timing-function: ease-in-out;

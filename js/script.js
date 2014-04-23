@@ -4,7 +4,8 @@
 var tptApp = angular.module ('tptApp', []);
 tptApp.controller('TptController', function ($scope) { 
 	//Creates a 2D array
-	var winnerAlert = document.getElementById("winnerAlert")
+	var winnerAlert = document.getElementById("winnerAlert");
+	var gameOverAlert = document.getElementById("gameOverAlert");
 	$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 	//The game is not over
 	$scope.gameOver = false;
@@ -26,74 +27,95 @@ tptApp.controller('TptController', function ($scope) {
 			if ($scope.cells[0] + $scope.cells[1] + $scope.cells[2] == 3 ||
 				$scope.cells[3] + $scope.cells[4] + $scope.cells[5] == 3 ||
 				$scope.cells[6] + $scope.cells[7] + $scope.cells[8] == 3) {
+				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "PACMAN WINS!";
 				$scope.winner = "pacman";		
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 					$scope.gameOver = false;
+					gameOverAlert.innerHTML = " ";
+					winnerAlert.innerHTML = " ";
 				};
 			//row for ghost
 			} else if ($scope.cells[0] + $scope.cells[1] + $scope.cells[2] == -3 ||
 				$scope.cells[3] + $scope.cells[4] + $scope.cells[5] == -3 ||
 				$scope.cells[6] + $scope.cells[7] + $scope.cells[8] == -3) {
+				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "GHOST WINS!";
 				$scope.winner = "ghost";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 					$scope.gameOver = false;
+					gameOverAlert.innerHTML = " ";
+					winnerAlert.innerHTML = " ";
 				};
 			//column for pacman
 			} else if ($scope.cells[0] + $scope.cells[3] + $scope.cells[6] == 3 ||
 				$scope.cells[1] + $scope.cells[4] + $scope.cells[7] == 3 ||
 				$scope.cells[2] + $scope.cells[5] + $scope.cells[8] == 3) {
+				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "PACMAN WINS!";
 				$scope.winner = "pacman";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 					$scope.gameOver = false;
+					gameOverAlert.innerHTML = " ";
+					winnerAlert.innerHTML = " ";
 				};
 			//column for ghost
 			} else if ($scope.cells[0] + $scope.cells[3] + $scope.cells[6] == -3 ||
 				$scope.cells[1] + $scope.cells[4] + $scope.cells[7] == -3 ||
 				$scope.cells[2] + $scope.cells[5] + $scope.cells[8] == -3) {
+				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "GHOST WINS!";
 				$scope.winner = "ghost";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 					$scope.gameOver = false;
+					gameOverAlert.innerHTML = " ";
+					winnerAlert.innerHTML = " ";
 				};
 			//diagonals for pacman
 			} else if ($scope.cells[0] + $scope.cells[4] + $scope.cells[8] == 3 ||
 				$scope.cells[2] + $scope.cells[4] + $scope.cells[6] == 3) {
+				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "PACMAN WINS!";
 				$scope.winner = "pacman";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 					$scope.gameOver = false;
+					gameOverAlert.innerHTML = " ";
+					winnerAlert.innerHTML = " ";
 				};
 			//diagonals for ghost
 			} else if ($scope.cells[0] + $scope.cells[4] + $scope.cells[8] == -3 ||
 				$scope.cells[2] + $scope.cells[4] + $scope.cells[6] == -3) {
+				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "GHOST WINS!";
 				$scope.winner = "ghost";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 					$scope.gameOver = false;
+					gameOverAlert.innerHTML = " ";
+					winnerAlert.innerHTML = " ";
 				};
 			//cat's game
 			} else if ($scope.cells[0] !== ' ' && $scope.cells[1] !== ' ' && $scope.cells[2] !== ' ' && $scope.cells[3] !== ' ' && $scope.cells[4] !== ' ' && $scope.cells[5] !== ' ' && $scope.cells[6] !== ' ' && $scope.cells[7] !== ' ' && $scope.cells[8]) {
+				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "CAT'S GAME";
 				$scope.winner = "none";
 				$scope.gameOver = true;
 				$scope.restart = function () {
 					$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 					$scope.gameOver = false;
+					gameOverAlert.innerHTML = " ";
+					winnerAlert.innerHTML = " ";
 				};
 			//changes to other player's turn
 			} else {
@@ -105,7 +127,6 @@ tptApp.controller('TptController', function ($scope) {
 		};
 	};
 });
-
 
 //when clicking on cell, ifXTurn is true, puts X, if false, puts O
 //changes ifXTurn to be the opposite of current state (true or false)

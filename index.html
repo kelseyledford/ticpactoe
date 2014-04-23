@@ -13,7 +13,9 @@
 		</div>
 	</div>
 	<div id="bottom">
-		<p id="winnerAlert"></p><input x-ng-class="{button: true, buttonHidden: gameOver == false, buttonAppear: gameOver == true}" type="button" value="Play again?" x-ng-click="restart()" />
+		<p id="gameOverAlert"></p>
+		<p id="winnerAlert"></p>
+		<p id="playAgain" x-ng-class="{blink: true, buttonHidden: gameOver == false, buttonAppear: gameOver == true}" x-ng-click="restart()">PLAY AGAIN?</p>
 	</div>
 </body>
 </html>
