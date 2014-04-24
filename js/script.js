@@ -6,12 +6,17 @@ tptApp.controller('TptController', function ($scope) {
 	//Creates a 2D array
 	var winnerAlert = document.getElementById("winnerAlert");
 	var gameOverAlert = document.getElementById("gameOverAlert");
+	var startSound;
 	$scope.cells = [' ',' ',' ',' ',' ',' ',' ',' ',' '];
 	//The game is not over
 	$scope.gameOver = false;
 	//It is pacman's turn to start
 	$scope.isPMTurn = true;
 	$scope.winner = null;
+	window.onload = function() {
+		startSound = document.getElementById("startSound");
+		startSound.play();
+	};
 	//When a cell is clicked, this function runs with the clicked cell's index passed as a parameter
 	$scope.makeMove = function (clickedCellIndex) {
 		//If the cells is empty, check win consitions
@@ -27,6 +32,11 @@ tptApp.controller('TptController', function ($scope) {
 			if ($scope.cells[0] + $scope.cells[1] + $scope.cells[2] == 3 ||
 				$scope.cells[3] + $scope.cells[4] + $scope.cells[5] == 3 ||
 				$scope.cells[6] + $scope.cells[7] + $scope.cells[8] == 3) {
+				var ghostDies = function() {
+					ghostDiesSound = document.getElementById("ghostDiesSound");
+					ghostDiesSound.play();
+				};
+				ghostDies();
 				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "PACMAN WINS!";
 				$scope.winner = "pacman";		
@@ -36,11 +46,18 @@ tptApp.controller('TptController', function ($scope) {
 					$scope.gameOver = false;
 					gameOverAlert.innerHTML = " ";
 					winnerAlert.innerHTML = " ";
+					startSound = document.getElementById("startSound");
+					startSound.play();
 				};
 			//row for ghost
 			} else if ($scope.cells[0] + $scope.cells[1] + $scope.cells[2] == -3 ||
 				$scope.cells[3] + $scope.cells[4] + $scope.cells[5] == -3 ||
 				$scope.cells[6] + $scope.cells[7] + $scope.cells[8] == -3) {
+				var pacmanDies = function() {
+					pacmanDiesSound = document.getElementById("pacmanDiesSound");
+					pacmanDiesSound.play();
+				};
+				pacmanDies();
 				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "GHOST WINS!";
 				$scope.winner = "ghost";
@@ -50,11 +67,18 @@ tptApp.controller('TptController', function ($scope) {
 					$scope.gameOver = false;
 					gameOverAlert.innerHTML = " ";
 					winnerAlert.innerHTML = " ";
+					startSound = document.getElementById("startSound");
+					startSound.play();
 				};
 			//column for pacman
 			} else if ($scope.cells[0] + $scope.cells[3] + $scope.cells[6] == 3 ||
 				$scope.cells[1] + $scope.cells[4] + $scope.cells[7] == 3 ||
 				$scope.cells[2] + $scope.cells[5] + $scope.cells[8] == 3) {
+				var ghostDies = function() {
+					ghostDiesSound = document.getElementById("ghostDiesSound");
+					ghostDiesSound.play();
+				};
+				ghostDies();
 				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "PACMAN WINS!";
 				$scope.winner = "pacman";
@@ -64,11 +88,18 @@ tptApp.controller('TptController', function ($scope) {
 					$scope.gameOver = false;
 					gameOverAlert.innerHTML = " ";
 					winnerAlert.innerHTML = " ";
+					startSound = document.getElementById("startSound");
+					startSound.play();
 				};
 			//column for ghost
 			} else if ($scope.cells[0] + $scope.cells[3] + $scope.cells[6] == -3 ||
 				$scope.cells[1] + $scope.cells[4] + $scope.cells[7] == -3 ||
 				$scope.cells[2] + $scope.cells[5] + $scope.cells[8] == -3) {
+				var pacmanDies = function() {
+					pacmanDiesSound = document.getElementById("pacmanDiesSound");
+					pacmanDiesSound.play();
+				};
+				pacmanDies();
 				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "GHOST WINS!";
 				$scope.winner = "ghost";
@@ -78,10 +109,17 @@ tptApp.controller('TptController', function ($scope) {
 					$scope.gameOver = false;
 					gameOverAlert.innerHTML = " ";
 					winnerAlert.innerHTML = " ";
+					startSound = document.getElementById("startSound");
+					startSound.play();
 				};
 			//diagonals for pacman
 			} else if ($scope.cells[0] + $scope.cells[4] + $scope.cells[8] == 3 ||
 				$scope.cells[2] + $scope.cells[4] + $scope.cells[6] == 3) {
+				var ghostDies = function() {
+					ghostDiesSound = document.getElementById("ghostDiesSound");
+					ghostDiesSound.play();
+				};
+				ghostDies();
 				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "PACMAN WINS!";
 				$scope.winner = "pacman";
@@ -91,10 +129,17 @@ tptApp.controller('TptController', function ($scope) {
 					$scope.gameOver = false;
 					gameOverAlert.innerHTML = " ";
 					winnerAlert.innerHTML = " ";
+					startSound = document.getElementById("startSound");
+					startSound.play();
 				};
 			//diagonals for ghost
 			} else if ($scope.cells[0] + $scope.cells[4] + $scope.cells[8] == -3 ||
 				$scope.cells[2] + $scope.cells[4] + $scope.cells[6] == -3) {
+				var pacmanDies = function() {
+					pacmanDiesSound = document.getElementById("pacmanDiesSound");
+					pacmanDiesSound.play();
+				};
+				pacmanDies();
 				gameOverAlert.innerHTML = "GAME  OVER";
 				winnerAlert.innerHTML = "GHOST WINS!";
 				$scope.winner = "ghost";
@@ -104,6 +149,8 @@ tptApp.controller('TptController', function ($scope) {
 					$scope.gameOver = false;
 					gameOverAlert.innerHTML = " ";
 					winnerAlert.innerHTML = " ";
+					startSound = document.getElementById("startSound");
+					startSound.play();
 				};
 			//cat's game
 			} else if ($scope.cells[0] !== ' ' && $scope.cells[1] !== ' ' && $scope.cells[2] !== ' ' && $scope.cells[3] !== ' ' && $scope.cells[4] !== ' ' && $scope.cells[5] !== ' ' && $scope.cells[6] !== ' ' && $scope.cells[7] !== ' ' && $scope.cells[8]) {
@@ -116,6 +163,8 @@ tptApp.controller('TptController', function ($scope) {
 					$scope.gameOver = false;
 					gameOverAlert.innerHTML = " ";
 					winnerAlert.innerHTML = " ";
+					startSound = document.getElementById("startSound");
+					startSound.play();
 				};
 			//changes to other player's turn
 			} else {

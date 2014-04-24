@@ -7,9 +7,9 @@
 	<script src="js/script.js"></script>
 </head>
 <body x-ng-controller="TptController">
-	<img id="logo" src="images/logo.jpg" />
+	<img id="logo" src="images/ticpactoe_logo.gif" />
 	<div id="board">
-		<div x-ng-class="{cell: true, pacman: c == 1, ghost: c == -1,  blueGhost: c == -1 && gameOver && winner == 'pacman', flash: c == 1 && gameOver && winner == 'ghost'}" x-ng-repeat="c in cells track by $index" x-ng-click = "makeMove($index);">
+		<div x-ng-class="{cell: true, pacman: c == 1, ghost: c == -1,  blueGhost: c == -1 && gameOver && winner == 'pacman', deadPacman: c == 1 && gameOver && winner == 'ghost'}" x-ng-repeat="c in cells track by $index" x-ng-click = "makeMove($index);">
 		</div>
 	</div>
 	<div id="bottom">
@@ -17,5 +17,8 @@
 		<p id="winnerAlert"></p>
 		<p id="playAgain" x-ng-class="{blink: true, buttonHidden: gameOver == false, buttonAppear: gameOver == true}" x-ng-click="restart()">PLAY AGAIN?</p>
 	</div>
+	<audio id="startSound" src="sounds/pacman_intro.wav" style="display: none;"></audio>
+	<audio id="pacmanDiesSound" src="sounds/Pacman-Die.mp3" style="display: none;"></audio>
+	<audio id="ghostDiesSound" src="sounds/ghost_dies.mp3" style="display: none;"></audio>
 </body>
 </html>
