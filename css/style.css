@@ -5,7 +5,10 @@ body {
 	font-family: 'Press Start 2P', 'cursive';
 }
 #logo {
-	margin: 20px;
+	margin-top: 20px;
+}
+#logoPic {
+	margin-bottom: 20px;
 }
 #board {
 	width: 350px;

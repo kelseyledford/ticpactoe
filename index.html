@@ -11,6 +11,8 @@
 <!-- 	<div id="wrapper">
 		<div id="box1" x-ng-show="box == 1" x-ng-click="clickTheBox()"> -->
 			<img id="logo" src="images/ticpactoe_logo2.png" />
+			<br />
+			<img id="logoPic" src="images/logo_pic.png" />
 			<div id="board">
 				<div x-ng-class="{cell: true, pacman: c == 1, ghost: c == -1,  blueGhost: c == -1 && winner == 'pacman', deadPacman: c == 1 && winner == 'ghost'}" x-ng-repeat="c in cells track by $index" x-ng-click = "makeMove($index);">
 				</div>
