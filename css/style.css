@@ -4,29 +4,24 @@ body {
 	color: white;
 	font-family: 'Press Start 2P', 'cursive';
 }
-#yesComputerPlayer {
-	font-size: 10px;
-}
-#noComputerPlayer {
-	font-size: 10px;
-}
 #logo {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin: 20px;
 }
 #board {
+	width: 350px;
+	height: 350px;
 	margin: 0 auto;
-	border: 4px solid blue;
-	width: 333px;
-	height: 333px;
-	padding: 5px;
+	padding: 8px;
+	border: 8px solid blue;
+	border-radius: 20px;
 }
 .cell {
-	width: 100px;
-	height: 100px;
-	border: 4px solid blue;
+	width: 102px;
+	height: 102px;
 	float: left;
-	margin: 2px;
+	margin: 4px;
+	border: 4px solid blue;
+	border-radius: 10px;
 }
 .pacman {
 	background-image: url("../images/pacman_alive.png");
@@ -40,28 +35,12 @@ body {
 	background-image: url("../images/blue_ghost.jpg");
 	background-size: cover;
 }
-/*.flash {
-/*-moz-animation: -ms-animation: -moz-keyframes -ms-keyframes-*/
-/*	-webkit-animation: flash 1s ease-out;
-  	-webkit-animation-iteration-count: 2;
-}
-@-webkit-keyframes flash {
-    0% { background-image:none;}
-    50% {background-image: url("../images/pacman_icon.png");}        
-    100% {background-image:none;}
-}*/
 .deadPacman {
 	background-image: url("../images/pacman-dies.gif");
 	background-size: cover;
 }
 #gameOverAlert {
 	color: red;
-}
-.buttonHidden {
-	display: none;
-}
-.buttonAppear {
-	display: visible;
 }
 #playAgain {
 	color: yellow;
@@ -74,7 +53,10 @@ body {
     50% {opacity: 0;}        
     100% {opacity: 1;}
 }
-
-/*	transition-property: background;
-	transition-duration: 2s;
-	transition-timing-function: ease-in-out;
+#wrapper {
+	width: 100px;
+	height: 100px;
+}
+#wrapper div {
+	position: absolute;
+}
