@@ -4,20 +4,34 @@ body {
 	color: white;
 	font-family: 'Press Start 2P', 'cursive';
 }
-#wrapper {
-	
-}
 #box1 {
 	margin: 0 auto;
 }
-#logo1 {
-
-}
-#logo2 {
+.logo {
+	margin-left: 15px;
 	margin-top: 20px;
 }
-#logoPic2 {
+.logoPic {
 	margin-bottom: 20px;
+}
+#waitingMessage {
+	margin-top: 75px;
+	margin-bottom: 35px;
+	color: rgb(94,250,252);
+}
+#pacmanWaitingGif {
+	margin-left: 5px;
+}
+#getReady {
+	margin-top: 45px;
+	font-style: italic;
+/*	color: rgb(255,250,55);*/
+}
+#player1Score {
+	display: inline;
+}
+#player2Score {
+	display: inline;
 }
 #board {
 	width: 350px;
@@ -35,6 +49,9 @@ body {
 	border: 4px solid blue;
 	border-radius: 10px;
 }
+#whoseTurn {
+	margin-top: 25px;
+}
 .pacman {
 	background-image: url("../images/pacman_alive.png");
 	background-size: cover;
@@ -43,21 +60,15 @@ body {
 	background-image: url("../images/red_ghost.png");
 	background-size: cover;
 }
-/*.blueGhost {
-	background-image: url("../images/blue_ghost.jpg");
-	background-size: cover;
-}
-.deadPacman {
-	background-image: url("../images/pacman-dies.gif");
-	background-size: cover;
-}*/
-#gif {
-	width: 750px;
+.gif {
+	width: 550px;
 }
 #gameOverAlert {
+	margin-top: 100px;
 	color: red;
 }
 #playAgain {
+	margin-top: 25px;
 	color: yellow;
 }
 .blink {
