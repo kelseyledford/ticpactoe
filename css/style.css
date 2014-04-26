@@ -4,10 +4,19 @@ body {
 	color: white;
 	font-family: 'Press Start 2P', 'cursive';
 }
-#logo {
+#wrapper {
+	
+}
+#box1 {
+	margin: 0 auto;
+}
+#logo1 {
+
+}
+#logo2 {
 	margin-top: 20px;
 }
-#logoPic {
+#logoPic2 {
 	margin-bottom: 20px;
 }
 #board {
@@ -34,13 +43,16 @@ body {
 	background-image: url("../images/red_ghost.png");
 	background-size: cover;
 }
-.blueGhost {
+/*.blueGhost {
 	background-image: url("../images/blue_ghost.jpg");
 	background-size: cover;
 }
 .deadPacman {
 	background-image: url("../images/pacman-dies.gif");
 	background-size: cover;
+}*/
+#gif {
+	width: 750px;
 }
 #gameOverAlert {
 	color: red;
@@ -55,11 +67,4 @@ body {
     0% {opacity: 1;}
     50% {opacity: 0;}        
     100% {opacity: 1;}
-}
-#wrapper {
-	width: 100px;
-	height: 100px;
-}
-#wrapper div {
-	position: absolute;
 }
