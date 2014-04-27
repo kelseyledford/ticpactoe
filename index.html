@@ -35,23 +35,23 @@
  		</div>
 		<div id="box3" x-ng-show="game.box == 3">
 			<p id="gameOverAlert">GAME  OVER</p>
-			<img class="gif" id="pmGif" src="images/pacman_winner.gif" x-ng-show="winner == ghost"></img>
+			<img class="gif" id="pmGif" x-ng-src="{{game.pacmanGifSource}}"></img>
 			<p id="winnerAlert">PACMAN WINS!</p>
-			<p id="playAgain" class="blink" x-ng-show="gameOver == true" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
+			<p id="playAgain" class="blink" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
+			<audio id="ghostDiesSound" src="sounds/ghostdiesfull6.mp3" style="display: none;"></audio> 
 		</div>
 		<div id="box4" x-ng-show="game.box == 4">
 			<p id="gameOverAlert">GAME  OVER</p>
-			<img class="gif" id="ghostGif" src="images/ghost_winner.gif" x-ng-show="winner == ghost"></img>
+			<img class="gif" id="ghostGif" x-ng-src="{{game.ghostGifSource}}"></img>
 			<p id="winnerAlert">GHOST WINS!</p>
-			<p id="playAgain" class="blink" x-ng-show="gameOver == true" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
+			<p id="playAgain" class="blink" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
+			<audio id="pacmanDiesSound" src="sounds/pacmandiesfull2.mp3" style="display: none;"></audio>
 		</div>
 		<div id="box5" x-ng-show="game.box == 5">
 			<p id="gameOverAlert">GAME  OVER</p>
 			<p id="winnerAlert">CAT'S GAME</p>
 			<p id="playAgain" class="blink" x-ng-show="gameOver == true" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
 		</div>
-			<!-- <audio id="pacmanDiesSound" src="sounds/Pacman-Die.mp3" style="display: none;"></audio>
-			<audio id="ghostDiesSound" src="sounds/ghost_dies.mp3" style="display: none;"></audio>  -->
 	</div> 
 </body>
 </html>

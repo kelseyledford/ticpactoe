@@ -63,6 +63,9 @@ body {
 .gif {
 	width: 550px;
 }
+.dontShow {
+	display: none;
+}
 #gameOverAlert {
 	margin-top: 100px;
 	color: red;
@@ -72,7 +75,7 @@ body {
 	color: yellow;
 }
 .blink {
-	-webkit-animation: blink 1s 2s infinite; 
+	-webkit-animation: blink 1s 3s infinite; 
 }
 @-webkit-keyframes blink {
     0% {opacity: 1;}
