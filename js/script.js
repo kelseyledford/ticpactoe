@@ -1,18 +1,9 @@
-//set game over and play again to pop up after
-//create click audio?
-//deploy on firebase
-//clean up code and comment things out
-//line across the top of play again while blinking
-//only playing win sound on one device
-
 var tptApp = angular.module ('tptApp', ["firebase"]);
 tptApp.controller('TptController', function ($scope, $timeout, $firebase) { 
-	var ticTacRef = new Firebase("https://ticpactoe.firebaseio.com/games");
+	var ticTacRef = new Firebase("https://tic-pac-toe.firebaseio.com/games");
 	var playerNum;
 	var lastGame;
 	var	startSound = document.getElementById("startSound");
-	var ghostDiesSound = document.getElementById("ghostDiesSound");
-	var pacmanDiesSound = document.getElementById("pacmanDiesSound");
 
 	ticTacRef.once("value", function(data){
 		var games = data.val(); 
@@ -24,8 +15,8 @@ tptApp.controller('TptController', function ($scope, $timeout, $firebase) {
 			if (lastGame.waiting==true) {
 				lastGame = ticTacRef.child(lastKey);
 				//Sets the state of the game for when both players have joined
-				lastGame.set ( {showWinner: false, showPlayAgain: false, ghostGifSource: ' ', pacmanGifSource: ' ', 
-					box: 2, waiting: false, gameOver: false, isPMTurn: true, cells: [' ',' ',' ',' ',' ',' ',' ',' ',' '] } );
+				lastGame.set ( {box: 2, waiting: false, ghostGifSource: ' ', pacmanGifSource: ' ', ghostDiesSound: ' ', pacmanDiesSound: ' ', playAgainSound: ' ',
+					gameOver: false, isPMTurn: true, showWinner: false, showPlayAgain: false, cells: [' ',' ',' ',' ',' ',' ',' ',' ',' '] } );
 				playerNum = 2;
 				startSound.play();
 			} else {
@@ -85,7 +76,7 @@ tptApp.controller('TptController', function ($scope, $timeout, $firebase) {
 		console.log($scope.game.box);
 		if ($scope.game.isPMTurn == true) {
 			$scope.game.box = 3;
-			ghostDiesSound.play();
+			$scope.game.ghostDiesSound = "sounds/ghost_dies.mp3";
 			$scope.game.pacmanGifSource = "images/pacman_wins.gif";
 			$timeout(function() {$scope.game.pacmanGifSource=" "; $scope.game.$save();}, 2800);
 			$timeout(function() {$scope.game.showWinner = true; $scope.game.$save();}, 3400);
@@ -93,7 +84,7 @@ tptApp.controller('TptController', function ($scope, $timeout, $firebase) {
 		//checks if ghost was the last one who played
 		} else {
 			$scope.game.box = 4;
-			pacmanDiesSoundTag.play();
+			$scope.game.ghostDiesSound = "sounds/pacman_dies.mp3";
 			$scope.game.ghostGifSource = "images/ghost_wins.gif";
 			$timeout(function() {$scope.game.ghostGifSource=" "; $scope.game.$save();}, 3800);
 			$timeout(function() {$scope.game.showWinner = true; $scope.game.$save();}, 4400);
@@ -110,8 +101,10 @@ tptApp.controller('TptController', function ($scope, $timeout, $firebase) {
 		$scope.gameOver = false;
 		$scope.game.showWinner = false;
 		$scope.game.showPlayAgain = false;
+		$scope.game.ghostDiesSound = ' ';
+		$scope.game.pacmanDiesSound = ' ';
+		$scope.game.playAgainSound = "sounds/pacman_intro.wav";
 		$scope.game.$save();
-		startSound.play();
 	};
 
 });

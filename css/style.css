@@ -9,10 +9,11 @@ body {
 	margin-top: 20px;
 }
 .logoPic {
+	margin-top: -30px;
 	margin-bottom: 20px;
 }
 #waitingMessage {
-	margin-top: 75px;
+	margin-top: 65px;
 	margin-bottom: 35px;
 	color: rgb(94,250,252);
 }
@@ -24,8 +25,8 @@ body {
 	font-style: italic;
 }
 #board {
-	width: 350px;
-	height: 350px;
+	width: 355px;
+	height: 355px;
 	margin: 0 auto;
 	padding: 8px;
 	border: 8px solid blue;
