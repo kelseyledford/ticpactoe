@@ -12,15 +12,15 @@
 <body x-ng-controller="TptController">
  	<div id="wrapper">
 		<div id="box1" x-ng-show="game.box == 1">
-			<img class="logo" src="images/ticpactoelogo.svg" />
+			<img class="logo" src="images/logo.svg" />
 			<br />
 			<img class="logoPic" src="images/logo_pic.png" />
 			<p id="waitingMessage">PLAYER 1</p>
-			<img id="pacmanWaitingGif" src="images/pacman_waiting.gif"></img>
+			<img class="pacmanWaitingGif" src="images/pacman_waiting.gif"></img>
 			<p id="getReady">GET READY!</p>
 		</div>
 		<div id="box2" x-ng-show="game.box == 2">
-			<img class="logo" src="images/ticpactoelogo.svg" />
+			<img class="logo" src="images/logo.svg" />
 			<br />
 			<img class="logoPic" src="images/logo_pic.png" />
 			<div id="board">
@@ -34,23 +34,24 @@
 			<audio id="startSound" src="sounds/pacman_intro.wav" style="display: none;"></audio>
  		</div>
 		<div id="box3" x-ng-show="game.box == 3">
-			<p id="gameOverAlert">GAME  OVER</p>
-			<img class="gif" id="pmGif" x-ng-src="{{game.pacmanGifSource}}"></img>
-			<p id="winnerAlert">PACMAN WINS!</p>
-			<p id="playAgain" class="blink" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
-			<audio id="ghostDiesSound" src="sounds/ghostdiesfull6.mp3" style="display: none;"></audio> 
+			<p class="gameOverAlert">GAME  OVER</p>
+			<img class="gif" x-ng-src="{{game.pacmanGifSource}}"></img>
+			<p class="winnerAlert" x-ng-show="game.showWinner == true">PACMAN WINS!</p>
+			<p class="blink" x-ng-click="restart()" x-ng-show="game.showPlayAgain == true">PLAY AGAIN?</p>
+			<audio id="ghostDiesSound" src="sounds/ghost_dies.mp3" style="display: none;"></audio> 
 		</div>
 		<div id="box4" x-ng-show="game.box == 4">
-			<p id="gameOverAlert">GAME  OVER</p>
-			<img class="gif" id="ghostGif" x-ng-src="{{game.ghostGifSource}}"></img>
-			<p id="winnerAlert">GHOST WINS!</p>
-			<p id="playAgain" class="blink" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
-			<audio id="pacmanDiesSound" src="sounds/pacmandiesfull2.mp3" style="display: none;"></audio>
+			<p class="gameOverAlert">GAME  OVER</p>
+			<img class="gif" x-ng-src="{{game.ghostGifSource}}"></img>
+			<p class="winnerAlert" x-ng-show="game.showWinner == true">GHOST WINS!</p>
+			<p class="blink" x-ng-click="restart()" x-ng-show="game.showPlayAgain == true">PLAY AGAIN?</p>
+			<audio id="pacmanDiesSound" src="sounds/pacman_dies.mp3" style="display: none;"></audio>
 		</div>
 		<div id="box5" x-ng-show="game.box == 5">
-			<p id="gameOverAlert">GAME  OVER</p>
-			<p id="winnerAlert">CAT'S GAME</p>
-			<p id="playAgain" class="blink" x-ng-show="gameOver == true" x-ng-hide="gameOver == false" x-ng-click="restart()">PLAY AGAIN?</p>
+			<p class="gameOverAlert">GAME  OVER</p> 
+			<img class="pacmanWaitingGif" src="images/pacman_waiting.gif"></img>
+			<p id="catsGame">CAT'S GAME</p>
+			<p class="blink" x-ng-show="game.showPlayAgain == true" x-ng-click="restart()">PLAY AGAIN?</p>
 		</div>
 	</div> 
 </body>
