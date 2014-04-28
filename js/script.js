@@ -37,6 +37,7 @@ tptApp.controller('TptController', function ($scope, $timeout, $firebase) {
 
 	//When a cell is clicked, this function runs with the clicked cell's index passed as a parameter
 	$scope.makeMove = function(clickedCellIndex) {
+		$scope.game.pacmanDiesSound = ' ';
 		if ($scope.game.cells[clickedCellIndex] == ' ' && $scope.game.isPMTurn == true && playerNum == 1) {
 			$scope.game.cells[clickedCellIndex] = 1;
 			$scope.game.$save();
