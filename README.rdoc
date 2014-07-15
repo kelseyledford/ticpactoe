@@ -1,0 +1,7 @@
+== Tic Pac Toe
+
+====A Tic Tac Toe game with a Pacman arcade theme
+
+<b>Created with</b> AngularJS and deployed on Firebase
+
+General Assembly's Web Development Immersive 5/6, Project 1
